@@ -1,15 +1,13 @@
-##Identifier Converter
+##Log Service
 
-Java web service.
+Java web service that logs events to database.
 
 ###Build
 ```
 mvn clean install
-
-mvn cargo:run
 ```
-###Test
 
+###Test
 ```
 curl http://localhost:8080/logservice/rest/log/test
 ```
