@@ -1,5 +1,6 @@
 package edu.yale.library.logservice;
 
+import org.apache.http.client.methods.HttpPost;
 import org.slf4j.Logger;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -40,10 +41,21 @@ public class LogServiceIT extends AbstractWarTest {
     }
 
     @Test
-    public void testGet() throws Exception {
+    public void testGET() throws Exception {
         HttpServiceTestUtil httpServiceTestUtil = new HttpServiceTestUtil();
         final HttpGet getMethod0 = httpServiceTestUtil.doGET(HTTP_SERVICE);
         final HttpResponse response0 = httpServiceTestUtil.httpClient.execute(getMethod0);
+        assertNotNull(response0);
+        assertEquals(IOUtils.toString(response0.getEntity().getContent()), 200,
+                response0.getStatusLine().getStatusCode());
+    }
+
+
+    @Test
+    public void testPOST() throws Exception {
+        HttpServiceTestUtil httpServiceTestUtil = new HttpServiceTestUtil();
+        final HttpPost post = httpServiceTestUtil.doPOST(HTTP_SERVICE);
+        final HttpResponse response0 = httpServiceTestUtil.httpClient.execute(post);
         assertNotNull(response0);
         assertEquals(IOUtils.toString(response0.getEntity().getContent()), 200,
                 response0.getStatusLine().getStatusCode());

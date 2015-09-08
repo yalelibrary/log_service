@@ -19,7 +19,7 @@ public class LoggingEvent implements java.io.Serializable {
     public long timestmp;
     public String formattedMessage;
     public String loggerName;
-    public String levelString; //TODO done for PFs
+    public String levelString;
     public String threadName;
     public Short referenceFlag;
     public String arg0;
