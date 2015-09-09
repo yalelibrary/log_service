@@ -18,6 +18,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 
 /**
+ * Tests Http Services
  * @author Osman Din
  */
 public class LogServiceIT extends AbstractWarTest {

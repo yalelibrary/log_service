@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 4, 2013 11:31:59 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="edu.yale.library.logservice.LoggingEvent" table="logging_event" catalog="abyss">
+        <id name="eventId" type="java.lang.Long">
+            <column name="event_id" />
+            <generator class="increment" />
+        </id>
+        <property name="timestmp" type="long">
+            <column name="timestmp" not-null="true" />
+        </property>
+        <property name="formattedMessage" type="string">
+            <column name="formatted_message" length="65535" not-null="true" />
+        </property>
+        <property name="loggerName" type="string">
+            <column name="logger_name" length="254" not-null="true" />
+        </property>
+        <property name="levelString" type="string">
+            <column name="level_string" length="254" not-null="true" />
+        </property>
+        <property name="threadName" type="string">
+            <column name="thread_name" length="254" />
+        </property>
+        <property name="referenceFlag" type="java.lang.Short">
+            <column name="reference_flag" />
+        </property>
+        <property name="arg0" type="string">
+            <column name="arg0" length="254" />
+        </property>
+        <property name="arg1" type="string">
+            <column name="arg1" length="254" />
+        </property>
+        <property name="arg2" type="string">
+            <column name="arg2" length="254" />
+        </property>
+        <property name="arg3" type="string">
+            <column name="arg3" length="254" />
+        </property>
+        <property name="callerFilename" type="string">
+            <column name="caller_filename" length="254" not-null="true" />
+        </property>
+        <property name="callerClass" type="string">
+            <column name="caller_class" length="254" not-null="true" />
+        </property>
+        <property name="callerMethod" type="string">
+            <column name="caller_method" length="254" not-null="true" />
+        </property>
+        <property name="callerLine" type="string">
+            <column name="caller_line" length="4" not-null="true" />
+        </property>
+        <!--
+        <set name="loggingEventExceptions" table="logging_event_exception" inverse="true" lazy="true" fetch="select" cascade="delete">
+            <key>
+                <column name="event_id" not-null="true" />
+            </key>
+            <one-to-many class="edu.yale.sml.model.LoggingEventException" />
+        </set>
+        <set name="loggingEventProperties" table="logging_event_property" inverse="true" lazy="true" fetch="select" cascade="delete">
+            <key>
+                <column name="event_id" not-null="true" />
+            </key>
+            <one-to-many class="edu.yale.sml.model.LoggingEventProperty" />
+        </set>
+        -->
+    </class>
+</hibernate-mapping>

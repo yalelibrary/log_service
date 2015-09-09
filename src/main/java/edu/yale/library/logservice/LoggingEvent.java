@@ -1,12 +1,8 @@
 package edu.yale.library.logservice;
 
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-
-import org.hibernate.Hibernate;
 
 /**
  * Logging Event
@@ -192,11 +188,9 @@ public class LoggingEvent implements java.io.Serializable {
         this.callerLine = callerLine;
     }
 
-
     public Set getLoggingEventExceptions() {
         return this.loggingEventExceptions;
     }
-
 
     public void setLoggingEventExceptions(Set loggingEventExceptions) {
         this.loggingEventExceptions = loggingEventExceptions;
