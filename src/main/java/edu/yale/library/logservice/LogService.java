@@ -28,19 +28,41 @@ public class LogService {
     @Path("/{param}")
     public Response transform(@PathParam("param") String msg) {
         logger.debug("GET request for:{}", msg);
-        final String result = "Looked up value for=" + msg;
+        final String result = "Nothing here for=" + msg;
         return Response.status(200).entity(result).build();
     }
 
     @POST
     @Path("/{param}")
     @Consumes("application/x-www-form-urlencoded")
-    public Response store(@FormParam("param") String msg) {
+    public Response store(@FormParam("message") String msg,
+                          @FormParam("arg0") String arg0,
+                          @FormParam("arg1") String arg1,
+                          @FormParam("arg2") String arg2,
+                          @FormParam("arg3") String arg3,
+                          @FormParam("caller_line") String line,
+                          @FormParam("caller_method") String method,
+                          @FormParam("caller_class") String klass,
+                          @FormParam("logger_name") String loggerName,
+                          @FormParam("level_string") String level,
+                          @FormParam("thread_name") String thread) {
+
         logger.debug("POST request for:{}", msg);
 
         final LoggingEvent event = new LoggingEventBuilder().createLoggingEvent();
         event.setFormattedMessage(msg);
         event.setTimestmp(new Date());
+        event.setLevelString(level);
+        event.setArg0(arg0);
+        event.setArg1(arg1);
+        event.setArg2(arg2);
+        event.setArg3(arg3);
+        event.setThreadName(thread);
+        event.setLoggerName(loggerName);
+        event.setCallerClass(klass);
+        event.setCallerLine(line);
+        event.setCallerMethod(method);
+
         try {
             dao.persist(event);
         } catch (RuntimeException e) {
