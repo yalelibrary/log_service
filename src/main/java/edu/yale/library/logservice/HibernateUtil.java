@@ -62,7 +62,7 @@ public final class HibernateUtil {
 
     private static class ConfigReader {
         public String getConfigFile() throws Exception {
-            return "default.hibernate.hbm.xml";
+            return "default.hibernate.cfg.xml";
         }
     }
 

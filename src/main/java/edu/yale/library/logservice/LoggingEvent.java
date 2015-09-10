@@ -6,12 +6,14 @@ import java.util.Set;
 
 /**
  * Logging Event
+ *
  * @author Osman Din
  */
+//edu.yale.library.logservice.LoggingEvent
 public class LoggingEvent implements java.io.Serializable {
 
     public static final long serialVersionUID = 1L;
-    public Long eventId;
+    public int eventId;
     public long timestmp;
     public String formattedMessage;
     public String loggerName;
@@ -32,24 +34,11 @@ public class LoggingEvent implements java.io.Serializable {
     public LoggingEvent() {
     }
 
-    public LoggingEvent(long timestmp, String formattedMessage, String loggerName,
-                        String levelString, String callerFilename, String callerClass,
-                        String callerMethod, String callerLine) {
-        this.timestmp = timestmp;
-        this.formattedMessage = formattedMessage;
-        this.loggerName = loggerName;
-        this.levelString = levelString;
-        this.callerFilename = callerFilename;
-        this.callerClass = callerClass;
-        this.callerMethod = callerMethod;
-        this.callerLine = callerLine;
-    }
-
-    public LoggingEvent(long timestmp, String formattedMessage, String loggerName,
-                        String levelString, String threadName, Short referenceFlag,
-                        String arg0, String arg1, String arg2, String arg3, String callerFilename,
-                        String callerClass, String callerMethod, String callerLine,
+    public LoggingEvent(int eventId, long timestmp, String formattedMessage, String loggerName, String levelString,
+                        String threadName, Short referenceFlag, String arg0, String arg1, String arg2, String arg3,
+                        String callerFilename, String callerClass, String callerMethod, String callerLine,
                         Set loggingEventExceptions, Set loggingEventProperties) {
+        this.eventId = eventId;
         this.timestmp = timestmp;
         this.formattedMessage = formattedMessage;
         this.loggerName = loggerName;
@@ -68,11 +57,11 @@ public class LoggingEvent implements java.io.Serializable {
         this.loggingEventProperties = loggingEventProperties;
     }
 
-    public Long getEventId() {
+    public int getEventId() {
         return this.eventId;
     }
 
-    public void setEventId(Long eventId) {
+    public void setEventId(int eventId) {
         this.eventId = eventId;
     }
 
@@ -84,7 +73,7 @@ public class LoggingEvent implements java.io.Serializable {
         this.timestmp = timestmp;
     }
 
-    public String getFormattedMessage(){
+    public String getFormattedMessage() {
         return this.formattedMessage;
     }
 

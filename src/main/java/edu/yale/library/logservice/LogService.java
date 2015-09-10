@@ -41,7 +41,7 @@ public class LogService {
         event.setFormattedMessage(msg);
 
         try {
-       //     dao.persist(event);
+            dao.persist(event);
         } catch (RuntimeException e) {
             logger.error("Error persisting log", e);
         }
