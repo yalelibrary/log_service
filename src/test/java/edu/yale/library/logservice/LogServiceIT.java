@@ -1,6 +1,10 @@
 package edu.yale.library.logservice;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+
+import org.apache.http.message.BasicNameValuePair;
 import org.slf4j.Logger;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -10,6 +14,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -41,7 +47,7 @@ public class LogServiceIT extends AbstractWarTest {
     public static void tearDown() {
     }
 
-    //@Test
+    @Test
     public void testGET() throws Exception {
         HttpServiceTestUtil httpServiceTestUtil = new HttpServiceTestUtil();
         final HttpGet getMethod0 = httpServiceTestUtil.doGET(HTTP_SERVICE);
@@ -52,10 +58,13 @@ public class LogServiceIT extends AbstractWarTest {
     }
 
 
-    //@Test
+    @Test
     public void testPOST() throws Exception {
         HttpServiceTestUtil httpServiceTestUtil = new HttpServiceTestUtil();
         final HttpPost post = httpServiceTestUtil.doPOST(HTTP_SERVICE);
+        List<NameValuePair> nvps = new ArrayList<NameValuePair>();
+        nvps.add(new BasicNameValuePair("yale", "secret"));
+        post.setEntity(new UrlEncodedFormEntity(nvps));
         final HttpResponse response0 = httpServiceTestUtil.httpClient.execute(post);
         assertNotNull(response0);
         assertEquals(IOUtils.toString(response0.getEntity().getContent()), 200,
