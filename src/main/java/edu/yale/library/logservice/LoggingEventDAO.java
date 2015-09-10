@@ -11,8 +11,6 @@ public class LoggingEventDAO {
 
     // List<LoggingEvent> loggingEvents = new ArrayList();
 
-    // private final SessionFactory sessionFactory = getSessionFactory();
-
     private final SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
     public LoggingEventDAO() {
@@ -20,10 +18,8 @@ public class LoggingEventDAO {
     }
 
     public void persist(LoggingEvent transientInstance) {
-        log.debug("persisting LoggingEvent instance");
         try {
             sessionFactory.getCurrentSession().persist(transientInstance);
-            log.debug("persist successful");
         } catch (RuntimeException re) {
             log.error("persist failed", re);
             throw re;

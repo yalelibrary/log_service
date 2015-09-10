@@ -19,6 +19,8 @@ public class LogService {
 
     private final Logger logger = getLogger(this.getClass());
 
+    private final LoggingEventDAO dao = new LoggingEventDAO();
+
     @GET
     @Path("/{param}")
     public Response transform(@PathParam("param") String msg) {
@@ -32,8 +34,15 @@ public class LogService {
     public Response store(@FormParam("param") String msg) {
         logger.debug("POST request for:{}", msg);
 
-        LoggingEvent event = new LoggingEvent();
+        final LoggingEvent event = new LoggingEvent();
         event.setFormattedMessage(msg);
+
+        try {
+            dao.persist(event);
+        } catch (RuntimeException e) {
+            logger.error("Error persisting log", e);
+        }
+
         //3. return response
         final String result = "Saved text=" + msg;
         return Response.status(200).entity(result).build();
