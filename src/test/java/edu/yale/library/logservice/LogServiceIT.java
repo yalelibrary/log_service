@@ -41,7 +41,7 @@ public class LogServiceIT extends AbstractWarTest {
     public static void tearDown() {
     }
 
-    @Test
+    //@Test
     public void testGET() throws Exception {
         HttpServiceTestUtil httpServiceTestUtil = new HttpServiceTestUtil();
         final HttpGet getMethod0 = httpServiceTestUtil.doGET(HTTP_SERVICE);
@@ -52,7 +52,7 @@ public class LogServiceIT extends AbstractWarTest {
     }
 
 
-    @Test
+    //@Test
     public void testPOST() throws Exception {
         HttpServiceTestUtil httpServiceTestUtil = new HttpServiceTestUtil();
         final HttpPost post = httpServiceTestUtil.doPOST(HTTP_SERVICE);
