@@ -8,12 +8,9 @@ import org.hibernate.Transaction;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
-
 public class LoggingEventDAO {
 
     private final Logger logger = getLogger(this.getClass());
-
-    // List<LoggingEvent> loggingEvents = new ArrayList();
 
     private final SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 

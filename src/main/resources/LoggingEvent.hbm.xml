@@ -9,9 +9,7 @@
             <generator class="native"/>
         </id>
 
-        <property name="timestmp" type="long">
-            <column name="timestamp" not-null="true" />
-        </property>
+        <property name="timestmp" column="timestamp"/>
         <property name="formattedMessage" type="string">
             <column name="message" length="65535"  />
         </property>

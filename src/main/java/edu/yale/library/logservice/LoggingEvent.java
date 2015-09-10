@@ -1,6 +1,7 @@
 package edu.yale.library.logservice;
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +15,7 @@ public class LoggingEvent implements java.io.Serializable {
 
     public static final long serialVersionUID = 1L;
     public int eventId;
-    public long timestmp;
+    public Date timestmp;
     public String formattedMessage;
     public String loggerName;
     public String levelString;
@@ -34,7 +35,7 @@ public class LoggingEvent implements java.io.Serializable {
     public LoggingEvent() {
     }
 
-    public LoggingEvent(int eventId, long timestmp, String formattedMessage, String loggerName, String levelString,
+    public LoggingEvent(int eventId, Date timestmp, String formattedMessage, String loggerName, String levelString,
                         String threadName, Short referenceFlag, String arg0, String arg1, String arg2, String arg3,
                         String callerFilename, String callerClass, String callerMethod, String callerLine,
                         Set loggingEventExceptions, Set loggingEventProperties) {
@@ -65,11 +66,11 @@ public class LoggingEvent implements java.io.Serializable {
         this.eventId = eventId;
     }
 
-    public long getTimestmp() {
+    public Date getTimestmp() {
         return this.timestmp;
     }
 
-    public void setTimestmp(long timestmp) {
+    public void setTimestmp(Date timestmp) {
         this.timestmp = timestmp;
     }
 
