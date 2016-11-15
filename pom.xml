@@ -188,6 +188,9 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire-plugin.version}</version>
         <configuration>
+           <systemProperties>
+              <java.awt.headless>true</java.awt.headless>
+          </systemProperties>
           <systemPropertyVariables>
             <property>
               <name>derby.stream.error.file</name>
