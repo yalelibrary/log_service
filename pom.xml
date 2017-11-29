@@ -297,4 +297,12 @@
       </plugin>
     </plugins>
   </build>
+
+  <repositories>
+    <repository>
+      <id>clojars</id>
+      <name>Clojars</name>
+      <url>http://clojars.org/repo/</url>
+    </repository>
+  </repositories>
 </project>
