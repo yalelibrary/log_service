@@ -51,7 +51,7 @@ https://git.yale.edu/Library-IT/Ladybird_Crons/blob/e71d80d008d53ea0161945e8ca75
 ```
 <Resource name="jdbc/log_service_sqlserver" auth="Container" type="javax.sql.DataSource"
        maxActive="15" maxIdle="30" maxWait="10000"
-       username="logger" password="log$#123*"
+       username="logger" password="******"
        driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
        url="jdbc:sqlserver://blues.library.yale.edu:1433;Databasename=log_service"
 />
