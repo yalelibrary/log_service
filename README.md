@@ -58,4 +58,6 @@ https://git.yale.edu/Library-IT/Ladybird_Crons/blob/e71d80d008d53ea0161945e8ca75
 ```
 3 - Redeploy the webapp  
 
+### Continuous integration 
+https://travis-ci.org/yalelibrary/log_service
 
